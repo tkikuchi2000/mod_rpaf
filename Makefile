@@ -13,6 +13,8 @@ mod_rpaf.c:
 
 install: mod_rpaf.so
 	$(APXS) -i -S LIBEXECDIR=$(DESTDIR)$$($(APXS) -q LIBEXECDIR)/ -n mod_rpaf.so mod_rpaf.la
+	cp rpaf.conf /etc/apache2/mods-available
+	cp rpaf.load /etc/apache2/mods-available
 
 clean:
 	rm -rf *~ *.o *.so *.lo *.la *.slo *.loT .libs/
